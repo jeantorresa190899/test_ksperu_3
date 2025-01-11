@@ -1,0 +1,11 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Usuario{% endblock %}
+
+{% block stylesheets %}
+    {{ parent() }}
+{% endblock %}
+
+{% block body %}
+    <h1 class="text-danger">Pagina de Usuario {{ nombre }} {{ apellido }}, con edad {{ edad }}</h1>
+{% endblock %}

@@ -1,0 +1,53 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Hello AlumnoController!{% endblock %}
+
+{% block body %}
+<div class="container">
+
+    <div class="card p-4 mx-auto" style="width:550px;">
+        <h1>Formulario de Alumnos</h1>
+
+        {# {{ form(formulario_de_alumno) }} #}
+
+        {{ form_start(formulario_de_alumno) }}
+
+            {{ form_errors(formulario_de_alumno) }}
+
+            <div class="mb-3">
+                <label for="nombres" class="form-label">{{ form_label(formulario_de_alumno.nombres) }}</label>
+                {{ form_widget(formulario_de_alumno.nombres, {'attr' : {'class' : 'form-control'}}) }}
+            </div>
+            <div class="mb-3">
+                <label for="apellidos" class="form-label">{{ form_label(formulario_de_alumno.apellidos) }}</label>
+                {{ form_widget(formulario_de_alumno.apellidos, {'attr' : {'class' : 'form-control'}}) }}
+            </div>
+            <div class="mb-3">
+                <label for="dni" class="form-label">{{ form_label(formulario_de_alumno.dni) }}</label>
+                {{ form_widget(formulario_de_alumno.dni, {'attr' : {'class' : 'form-control'}}) }}
+            </div>
+            <div class="mb-3">
+                <label for="telefono" class="form-label">{{ form_label(formulario_de_alumno.telefono) }}</label>
+                {{ form_widget(formulario_de_alumno.telefono, {'attr' : {'class' : 'form-control'}}) }}
+            </div>
+            <div class="mb-3">
+                <label for="foto" class="form-label">{{ form_label(formulario_de_alumno.foto) }}</label>
+                {{ form_widget(formulario_de_alumno.foto, {'attr' : {'class' : 'form-control'}}) }}
+            </div>
+
+            {{ form_row(formulario_de_alumno.Guardar, {'attr' : {'class' : 'w-100 btn btn-primary'}}) }}
+
+        {{ form_end(formulario_de_alumno) }}
+    </div>
+
+
+
+    <h1>Lista de Alumnos</h1>
+
+    {% for alumno in alumnos %}
+        {{ alumno.nombres }} {{ alumno.apellidos }} {{ alumno.dni}} {{ alumno.telefono }} 
+        <img src="{{ asset('img/' ~ alumno.foto) }}" width="50" heigth="50" /></br>
+    {% endfor %}
+
+</div>
+{% endblock %}
